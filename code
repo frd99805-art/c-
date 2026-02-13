@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string name;
+    int shift = 3; // مقدار التشفير ثابت للسهولة
+
+    cout << "Enter your name: ";
+    cin >> name; // إدخال الاسم
+
+    cout << "Encrypted: ";
+
+    // حلقة تمر على كل حرف في الاسم وتشفرة
+    for (int i = 0; i < name.length(); i++) {
+        
+        // تشفير الحروف الصغيرة
+        if (name[i] >= 'a' && name[i] <= 'z') {
+            char c = (name[i] - 'a' + shift) % 26 + 'a';
+            cout << c;
+        }
+        // تشفير الحروف الكبيرة
+        else if (name[i] >= 'A' && name[i] <= 'Z') {
+            char c = (name[i] - 'A' + shift) % 26 + 'A';
+            cout << c;
+        }
+        // إذا كان هناك أرقام أو رموز تطبع كما هي
+        else {
+            cout << name[i];
+        }
+    }
+
+    cout << endl;
+    return 0;
+}
